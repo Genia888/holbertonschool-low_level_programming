@@ -2,6 +2,7 @@
 
 /**
  *_islower - Entry point
+ *@c: caracter
  *Return: 1 if 'c' is lowercase or Always 0 (Success)
  */
 
