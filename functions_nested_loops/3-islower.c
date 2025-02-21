@@ -2,8 +2,7 @@
 
 /**
  *_islower - Entry point
- *Return: 1 if 'c' is lowercase
- *Return: Always 0 (Success)
+ *Return: 1 if 'c' is lowercase or Always 0 (Success)
  */
 
 
