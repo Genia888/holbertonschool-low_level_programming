@@ -2,7 +2,8 @@
 
 /**
  *_islower - Entry point
- *Return: 1 if c is lowercase and returns 0 otherwise(Success)
+ *Return: 1 if c is lowercase
+ *Returns 0 otherwise
  */
 
 
