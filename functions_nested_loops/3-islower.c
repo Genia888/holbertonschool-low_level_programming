@@ -3,7 +3,7 @@
 /**
  *_islower - Entry point
  *Return: 1 if 'c' is lowercase
- *Returns 0 otherwise
+ *Return: Always 0 (Success)
  */
 
 
