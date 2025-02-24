@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- *_isupper: test for an uppercase letter
+ *_isupper - tester si un caractere est une lettre majuscule ou non
  *@c: character to check
  *
  *Return: 0 or 1
