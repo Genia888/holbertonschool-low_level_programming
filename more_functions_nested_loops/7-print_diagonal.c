@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *print_square - function that prints a square,
+ *print_diagonal - function that prints a square,
  *followed by a new line
  *@n: number of times the character
  *Return: Always 0.
