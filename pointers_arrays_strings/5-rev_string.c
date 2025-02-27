@@ -3,30 +3,32 @@
 
 /**
  *rev_string - Write a function that reverses a string.
- *@s: parameter used.
+ *@s: text
  *Return: Always 0.
  */
 
 void rev_string(char *s)
+
 {
-	int l;
-	int temp;
-	int x;
-	int y;
+	int y = 0;
+	int x = 0;
 
-	l = 0;
-	while (s[l] != '\0')
+	while (s[y] != '\0')
 	{
-		l++;
+		y++;
 	}
-
-	x = 0;
-	y = l - 1;
+	y--;
 	while (x < y)
+
+
 	{
-		temp = s[x];
+
+		char temp = s[x];
+
 		s[x] = s[y];
 		s[y] = temp;
+
+
 		x++;
 		y--;
 	}
