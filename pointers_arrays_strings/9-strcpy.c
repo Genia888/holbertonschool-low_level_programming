@@ -7,7 +7,7 @@
  *to the buffer pointed to by dest
  *@src: number
  *@dest: number
- *Return: Always 0.
+ *Return: dest.
  */
 
 char *_strcpy(char *dest, char *src)
