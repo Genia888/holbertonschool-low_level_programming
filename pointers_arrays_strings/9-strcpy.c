@@ -7,7 +7,7 @@
  *to the buffer pointed to by dest
  *@src: number
  *@dest: number
- *Return: dest.
+ *Return: 0
  */
 
 char *_strcpy(char *dest, char *src)
@@ -20,5 +20,5 @@ char *_strcpy(char *dest, char *src)
 		dest[n] = src[n];
 		n++;
 	}
-	return (dest);
+	return (0);
 }
