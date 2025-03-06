@@ -15,7 +15,7 @@ int is_prime_number(int n)
 }
 
 /**
- *helper_prime - function that checks for prime number.
+ *prime - function that checks for prime number.
  *@x: parameter used.
  *@y: parameter used.
  *Return: prime function.
