@@ -2,13 +2,14 @@
 #include "dog.h"
 
 /**
- * new_dog - Crée un nouveau chien.
- * @name: Nom du chien.
- * @age: Âge du chien.
- * @owner: Propriétaire du chien.
+ * new_dog - function that creates a new dog
+ * @name: dog name
+ * @age: dog age
+ * @owner: dog owner
  *
- * Return: Pointeur vers la nouvelle structure dog_t, ou NULL en cas d'échec.
+ * Return: Return NULL if the function fails
  */
+
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog;
@@ -40,14 +41,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-
 	for (i = 0; i <= name_len; i++)
 		name_copy[i] = name[i];
 
-
 	for (i = 0; i <= owner_len; i++)
 		owner_copy[i] = owner[i];
-
 
 	new_dog->name = name_copy;
 	new_dog->age = age;
