@@ -1,4 +1,4 @@
-#ifndef _3_calc-h
+#ifndef _3_calc_h
 #define _3_calc_h
 
 /**
