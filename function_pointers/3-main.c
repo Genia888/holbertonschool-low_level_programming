@@ -29,10 +29,17 @@ int main(int argc, char *argv[])
 	}
 	operation = get_op_func(argv[2]);
 
+
 	if (operation == NULL)
 	{
 		printf("Error\n");
 		exit(99);
+	}
+
+	if ((*operation == op_mod || *operation == op_div) && (num2 == 0))
+	{
+		printf("Error\n");
+		exit(100);
 	}
 
 	printf("%d\n", operation(num1, num2));
