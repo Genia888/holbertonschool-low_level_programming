@@ -5,7 +5,6 @@
 /**
  * get_op_func - fonction  that performs simple operations
  * @s: the operator
- * @i: integer variable
  * Return: a pointer to the function
  */
 
