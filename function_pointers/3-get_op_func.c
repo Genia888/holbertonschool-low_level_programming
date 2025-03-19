@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "3-calc.h"
-#include <string.h>
 
 /**
  * get_op_func - fonction  that performs simple operations
@@ -22,12 +21,6 @@ int (*get_op_func(char *s))(int, int)
 	};
 
 	int i = 0;
-
-	if(strlen (s) !=1)
-	{
-		printf("Error\n");
-		exit(99);
-	}
 
 
 	while (i < 5)
