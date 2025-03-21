@@ -9,14 +9,14 @@ void print_all(const char * const format, ...);
 
 
 /**
- * struct type - structure to chekc
- * @letter: letter
+ * struct type - structur
+ * @str: letter
  * @function: function
  */
 
 typedef struct type
 {
-	char *letter;
+	char *str;
 	void (*function)(va_list print);
 } type;
 

@@ -4,7 +4,7 @@
 
 /**
  * pr_char - print characters
- * @list: the list
+ * @list: list
  */
 
 void pr_char(va_list list)
@@ -15,7 +15,7 @@ void pr_char(va_list list)
 
 /**
  * pr_int - print integer
- * @list: the list
+ * @list: list
  */
 
 void pr_int(va_list list)
@@ -26,7 +26,7 @@ void pr_int(va_list list)
 
 /**
  * pr_float - print float
- * @list: the list again
+ * @list: list
  */
 
 void pr_float(va_list list)
@@ -37,7 +37,7 @@ void pr_float(va_list list)
 
 /**
  * pr_string - print string
- * @list: the list itself
+ * @list: list
  */
 
 void pr_string(va_list list)
@@ -67,22 +67,22 @@ void print_all(const char * const format, ...)
 		{"s", pr_string},
 	};
 
-	va_list printed;
+	va_list args;
 	unsigned int i = 0;
 	unsigned int x = 0;
 	char *separator;
 
-	va_start(printed, format);
+	va_start(args, format);
 	separator = "";
 
 	while (format != NULL && format[i] != '\0')
 	{
 		while (x < 4)
 		{
-			if (format[i] == form[x].letter[0])
+			if (format[i] == form[x].str[0])
 			{
 				printf("%s", separator);
-				form[x].function(printed);
+				form[x].function(args);
 				separator = ", ";
 			}
 			x++;
@@ -91,5 +91,5 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-	va_end(printed);
+	va_end(args);
 }
