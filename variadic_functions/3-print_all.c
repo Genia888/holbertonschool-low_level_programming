@@ -69,25 +69,25 @@ void print_all(const char * const format, ...)
 
 	va_list printed;
 	unsigned int i = 0;
-	unsigned int j = 0;
-	char *sep;
+	unsigned int x = 0;
+	char *separator;
 
 	va_start(printed, format);
-	sep = "";
+	separator = "";
 
 	while (format != NULL && format[i] != '\0')
 	{
-		while (j < 4)
+		while (x < 4)
 		{
-			if (format[i] == form[j].letter[0])
+			if (format[i] == form[x].letter[0])
 			{
-				printf("%s", sep);
-				form[j].function(printed);
-				sep = ", ";
+				printf("%s", separator);
+				form[x].function(printed);
+				separator = ", ";
 			}
-			j++;
+			x++;
 		}
-		j = 0;
+		x = 0;
 		i++;
 	}
 	printf("\n");
