@@ -32,8 +32,9 @@ void _cp(char *f_from, char *f_to)
 		exit(99);
 	}
 
-	while ((text_copy = read(file_from, buff, BUFF_SIZE)) != 0)
+	while (1)
 	{
+		text_copy = read(file_from, buff, BUFF_SIZE);
 		if (text_copy == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
@@ -41,6 +42,9 @@ void _cp(char *f_from, char *f_to)
 			close(file_to);
 			exit(98);
 		}
+
+		if (text_copy == 0)
+			break;
 
 		text_written = write(file_to, buff, text_copy);
 		if (text_written != text_copy)
