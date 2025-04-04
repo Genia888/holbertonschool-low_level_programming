@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * read_textfile - function that reads a text file 
+ * read_textfile - function that reads a text file
  * and prints it to the POSIX standard output
  * @filename : name of the file
  * @letters : letters
@@ -15,7 +15,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int file;
 	size_t n;
-	char *buf;
+	char *buffer;
 
 	if (filename == NULL)
 		return (0);
@@ -24,14 +24,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (file == -1)
 		return (0);
-	buf = malloc(letters + 1);
+	buffer = malloc(letters + 1);
 
-	if (buf == NULL)
+	if (buffer == NULL)
 		return (0);
 
-	n = read(file, buf, letters);
+	n = read(file, buffer, letters);
 
-	write(STDOUT_FILENO, buf, n);
+	write(STDOUT_FILENO, buffer, n);
 	close(file);
 	return (n);
-
+}
