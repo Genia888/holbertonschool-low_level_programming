@@ -1,20 +1,14 @@
 #include "main.h"
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
 #define BUFF_SIZE 1024
-
 /**
- * _cp - Copy content from one file to another.
- * @f_from: Source file
- * @f_to: Destination file
+ * _cp - copy text from file to another file
+ * @f_to: file to be written
+ * @f_from: file to be read
  */
 void _cp(char *f_from, char *f_to)
 {
 	int file_from = open(f_from, O_RDONLY);
-	int file_to;
+	int file_to = open(f_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	ssize_t text_copy, text_written;
 	char buff[BUFF_SIZE];
 
@@ -23,58 +17,42 @@ void _cp(char *f_from, char *f_to)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
 		exit(98);
 	}
-
-	file_to = open(f_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
-		close(file_from);
 		exit(99);
 	}
-
-	while (1)
+	while ((text_copy = read(file_from, buff, BUFF_SIZE)) > 0)
 	{
-		text_copy = read(file_from, buff, BUFF_SIZE);
-		if (text_copy == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
-			close(file_from);
-			close(file_to);
-			exit(98);
-		}
-
-		if (text_copy == 0)
-			break;
-
 		text_written = write(file_to, buff, text_copy);
 		if (text_written != text_copy)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", f_to);
-			close(file_from);
-			close(file_to);
 			exit(99);
 		}
 	}
-
+	if (text_copy == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", f_from);
+		exit(98);
+	}
 	if (close(file_from) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_from);
 		exit(100);
 	}
-
 	if (close(file_to) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_to);
 		exit(100);
 	}
 }
 
 /**
- * main - Entry point
- * @argc: Argument count
- * @argv: Argument vector
- *
- * Return: 0 on success, exits with error code on failure
+ * main - call the function _cp
+ * @argc: numbr of arguments
+ * @argv: list of arguments
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
@@ -83,8 +61,6 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
 	_cp(argv[1], argv[2]);
 	return (0);
 }
-
