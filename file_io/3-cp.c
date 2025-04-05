@@ -4,10 +4,10 @@
 #include "main.h"
 
 /**
- * main - copies the content of a file to another file
- * @argc: number of arguments
- * @argv: arguments
- *Return: 0
+ * main - entry point of the program
+ * @argc: number of arguments passed to the program
+ * @argv: array of pointers to the arguments
+ *Return: 0 on success, or an appropriate exit code on error
  */
 
 int main(int argc, char **argv)
